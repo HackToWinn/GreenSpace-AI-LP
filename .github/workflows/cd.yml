@@ -22,4 +22,5 @@ jobs:
             cd /var/www/GreenSpace-AI-LP
             git pull
             npm install
-            pm2 restart nextjs-app
+            npm run build
+            pm2 reload nextjs-app || pm2 start npm --name "nextjs-app" -- run start
