@@ -8,7 +8,7 @@ export default function Footer() {
           <Image src={"/icons/favicon.png"} alt="GreenSpace Logo" width={32} height={32} className="w-8 md:w-10" />
           <h1 className="font-bold text-md md:text-xl">GreenSpace</h1>
         </div>
-        <p className="text-xs md:text-md text-gray-600">© 2025 GreenSpace. All rights reserved.</p>
+        <p className="text-xs md:text-md text-gray-600">© 2025 HackToWin. All rights reserved.</p>
       </div>
     </footer>
   )
