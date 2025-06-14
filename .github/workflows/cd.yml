@@ -3,11 +3,11 @@ name: CD Landing Page
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
-  deploy-api:
+  deploy-lp:
     name: Deploy Landing Page 
     runs-on: ubuntu-latest
     steps:
