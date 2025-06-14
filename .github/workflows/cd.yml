@@ -1,4 +1,4 @@
-name: Monorepo CD to VPS
+name: CD Landing Page
 
 on:
   push:
