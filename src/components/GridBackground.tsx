@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function GridBackgroundDemo() {
   return (
-    <div className="relative flex min-h-screen sm:h-[50rem] lg:h-[80rem] w-full items-center justify-center bg-[#E6F4EC]">
+    <div id="hero-section" className="relative flex min-h-screen sm:h-[50rem] lg:h-[80rem] w-full items-center justify-center bg-[#E6F4EC]">
       <div
         className={cn(
           "absolute inset-0",

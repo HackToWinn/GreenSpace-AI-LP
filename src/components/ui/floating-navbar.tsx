@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface NavItem {
   link: string;
   icon?: JSX.Element;
@@ -17,6 +18,7 @@ interface NavItem {
 }
 
 export const FloatingNav = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   navItems,
   className,
 }: {
@@ -72,7 +74,7 @@ export const FloatingNav = ({
           <h1 className="font-bold text-md md:text-xl">GreenSpace</h1>
         </div>
         <div className="flex items-center gap-x-2 sm:gap-x-4">
-          {navItems.map((navItem: NavItem, idx: number) => (
+          {/* {navItems.map((navItem: NavItem, idx: number) => (
             <Link
               key={`link=${idx}`}
               href={navItem.link}
@@ -83,7 +85,13 @@ export const FloatingNav = ({
               <span className="block sm:hidden text-2xl">{navItem.icon}</span>
               <span className="hidden sm:block text-sm font-medium">{navItem.name}</span>
             </Link>
-          ))}
+          ))} */}
+          <Link
+            href={'#hero-section'}
+            className="bg-[#4CAF50] hover:bg-[#0F2612] text-white px-4 py-2 rounded-full text-base font-semibold transition-colors duration-200"
+          >
+            Download App
+          </Link>
         </div>
       </motion.div>
     </AnimatePresence>
