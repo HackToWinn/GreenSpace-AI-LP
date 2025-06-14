@@ -11,12 +11,12 @@ export default function Home() {
       <Navbar />
       <GridBackgroundDemo />
       <Container>
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12">
+        <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8 lg:gap-12">
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 font-bold mb-4 text-center lg:text-left">
               What is GreenSpace?
             </h1>
-            <p className="text-base sm:text-sm text-center lg:text-xl text-gray-600 lg:text-left leading-relaxed">
+            <p className="text-xs sm:text-sm lg:text-xl text-center text-gray-600 lg:text-left leading-relaxed">
               GreenSpace is a mobile application designed to help you live more sustainably
               by connecting you with nature through technology. With features like AI-powered environment identification, eco-friendly tips,
               and habit tracking, GreenSpace empowers individuals to make small changes that lead to a greener, healthier planet.
@@ -49,10 +49,10 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full lg:w-auto order-2 lg:order-2 text-center lg:text-left">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-100 font-bold mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-100 font-bold mb-3 sm:mb-4">
               Powered by Internet Computer
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 mb-4 sm:mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-xs sm:text-sm lg:text-xl text-gray-100 mb-4 sm:mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               GreenSpace is built on the Internet Computer blockchain, a decentralized platform for building decentralized applications.
             </p>
             <Link href="https://internetcomputer.org/" target="_blank">
@@ -69,10 +69,10 @@ export default function Home() {
       <footer className="w-full p-4">
         <div className="py-4 flex justify-between items-center border-t border-gray-200">
           <div className="flex items-center gap-x-1">
-            <Image src={"/icons/favicon.png"} alt="GreenSpace Logo" width={32} height={32} className="w-10" />
-            <h1 className="font-bold text-xl">GreenSpace</h1>
+            <Image src={"/icons/favicon.png"} alt="GreenSpace Logo" width={32} height={32} className="w-8 md:w-10" />
+            <h1 className="font-bold text-md md:text-xl">GreenSpace</h1>
           </div>
-          <p className="text-md text-gray-600">© 2025 GreenSpace. All rights reserved.</p>
+          <p className="text-xs md:text-md text-gray-600">© 2025 GreenSpace. All rights reserved.</p>
         </div>
       </footer>
     </div>
