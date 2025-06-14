@@ -2,39 +2,44 @@ import Container from "@/components/Container";
 import FeatureSection from "@/components/FeatureSection";
 import { GridBackgroundDemo } from "@/components/GridBackground";
 import Navbar from "@/components/Navbar";
+import { BackgroundBeams } from "@/components/BackgroundBeams";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <div className="w-full font-[family-name:var(--font-jakarta-sans)]">
       <Navbar />
       <GridBackgroundDemo />
-      <Container>
-        <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8 lg:gap-12">
-          <div className="w-full lg:w-1/2 order-2 lg:order-1">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 font-bold mb-4 text-center lg:text-left">
-              What is GreenSpace?
-            </h1>
-            <p className="text-xs sm:text-sm lg:text-xl text-center text-gray-600 lg:text-left leading-relaxed">
-              GreenSpace is a mobile application designed to help you live more sustainably
-              by connecting you with nature through technology. With features like AI-powered environment identification, eco-friendly tips,
-              and habit tracking, GreenSpace empowers individuals to make small changes that lead to a greener, healthier planet.
-            </p>
-          </div>
-          <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
-            <div className="max-w-sm sm:max-w-md lg:max-w-full">
-              <Image
-                src={'/images/mockup2.png'}
-                alt="Mockup"
-                width={1200}
-                height={1200}
-                className="w-full h-auto"
-              />
+      <div className="relative">
+        <Container>
+          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8 lg:gap-12">
+            <div className="w-full lg:w-1/2 order-2 lg:order-1 z-10">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 font-bold mb-4 text-center lg:text-left">
+                What is GreenSpace?
+              </h1>
+              <p className="text-xs sm:text-sm lg:text-xl text-center text-gray-600 lg:text-left leading-relaxed">
+                GreenSpace is a mobile application designed to help you live more sustainably
+                by connecting you with nature through technology. With features like AI-powered environment identification, eco-friendly tips,
+                and habit tracking, GreenSpace empowers individuals to make small changes that lead to a greener, healthier planet.
+              </p>
+            </div>
+            <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center z-10">
+              <div className="max-w-sm sm:max-w-md lg:max-w-full">
+                <Image
+                  src={'/images/mockup2.png'}
+                  alt="Mockup"
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto "
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+          <BackgroundBeams className="z-0" />
+        </Container>
+      </div>
       <Container>
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-18 py-6 sm:py-8 lg:py-4 flex flex-col lg:flex-row justify-between items-center gap-6 sm:gap-8 lg:gap-x-5 bg-gradient-to-r from-violet-500 to-indigo-700 rounded-2xl sm:rounded-3xl lg:rounded-4xl">
           <div className="w-full lg:w-1/2 order-1 lg:order-1 flex justify-center lg:justify-start">
@@ -66,15 +71,7 @@ export default function Home() {
       <Container>
         <FeatureSection />
       </Container>
-      <footer className="w-full p-4">
-        <div className="py-4 flex justify-between items-center border-t border-gray-200">
-          <div className="flex items-center gap-x-1">
-            <Image src={"/icons/favicon.png"} alt="GreenSpace Logo" width={32} height={32} className="w-8 md:w-10" />
-            <h1 className="font-bold text-md md:text-xl">GreenSpace</h1>
-          </div>
-          <p className="text-xs md:text-md text-gray-600">© 2025 GreenSpace. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
