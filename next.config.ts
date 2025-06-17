@@ -1,15 +1,12 @@
 import type { NextConfig } from "next";
-import path from "path";
+import withTM from "next-transpile-modules";
 
-const nextConfig: NextConfig = {
-  webpack: (config) => {
-    config.resolve.alias["./candid-core"] = path.resolve(
-      __dirname,
-      "node_modules/@dfinity/candid/lib/esm/candid"
-    );
+const withTranspile = withTM([
+  "@dfinity/candid",
+  "@dfinity/identity",
+  "@dfinity/auth-client"
+]);
 
-    return config;
-  },
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
