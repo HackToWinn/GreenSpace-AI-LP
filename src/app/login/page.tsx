@@ -45,7 +45,7 @@ export default function LoginButton() {
     const middleIdentity = authClient.getIdentity();
 
     if (appPublicKey && middleIdentity instanceof DelegationIdentity) {
-      const middleToApp = await DelegationChain.create(middleKeyIdentity, appPublicKey, new Date(Date.now() + 15 * 60 * 1000), { previous: middleIdentity.getDelegation() });
+      const middleToApp = await DelegationChain.create(middleKeyIdentity, appPublicKey, new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000), { previous: middleIdentity.getDelegation() });
       const delegationString = JSON.stringify(middleToApp.toJSON());
       const finalUrl = `${scheme}?delegation=${encodeURIComponent(delegationString)}`;
       window.location.href = finalUrl;
