@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import CustomButton from "../CustomButton";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface NavItem {
@@ -86,12 +87,7 @@ export const FloatingNav = ({
               <span className="hidden sm:block text-sm font-medium">{navItem.name}</span>
             </Link>
           ))} */}
-          <Link
-            href={'#hero-section'}
-            className="bg-[#4CAF50] hover:bg-[#0F2612] text-white px-4 py-2 rounded-full text-base font-semibold transition-colors duration-200"
-          >
-            Download App
-          </Link>
+          <CustomButton href="" title="Download App" />
         </div>
       </motion.div>
     </AnimatePresence>
