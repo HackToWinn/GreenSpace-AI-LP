@@ -8,7 +8,6 @@ import {
 } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import CustomButton from "../CustomButton";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
