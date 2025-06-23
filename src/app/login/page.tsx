@@ -7,6 +7,8 @@ import { Buffer } from 'buffer';
 import { useEffect, useState } from 'react';
 
 export default function LoginButton() {
+  const network = process.env.NEXT_PUBLIC_NETWORK || 'ic'; 
+  const identityProvider = network === 'local' ? `http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943/` : 'https://identity.ic0.app';
   const [appPublicKey, setAppPublicKey] = useState<Ed25519PublicKey | null>(null);
   const [scheme, setScheme] = useState<string>('');
 
@@ -37,7 +39,7 @@ export default function LoginButton() {
 
     await new Promise<void>(resolve => {
       authClient.login({
-        identityProvider: 'http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943/',
+        identityProvider: identityProvider,
         onSuccess: resolve
       });
     });
