@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import Image from "next/image";
+import CustomButton from "./CustomButton";
 
 export function GridBackgroundDemo() {
   return (
@@ -22,20 +23,7 @@ export function GridBackgroundDemo() {
           GreenSpace empowers you to reconnect with nature through smart, eco-friendly tools — identify environment with AI, track your green habits, and live more sustainably, one step at a time.
         </p>
         <div className="flex flex-row justify-center items-center gap-4 sm:gap-x-8 mb-8 sm:mb-12">
-          <Image 
-            src={'/icons/AppStore.svg'} 
-            alt="App Store Logo" 
-            width={100} 
-            height={100} 
-            className="w-20 sm:w-32 lg:w-40 h-auto" 
-          />
-          <Image 
-            src={'/icons/PlayStore.png'} 
-            alt="Play Store Logo" 
-            width={100} 
-            height={100} 
-            className="w-24 sm:w-36 lg:w-44 h-auto" 
-          />
+          <CustomButton href="" title="Download App" size="lg" />
         </div>
         <div className="flex justify-center items-center">
           <div className="w-full max-w-xs sm:max-w-sm lg:max-w-lg xl:max-w-2xl">
