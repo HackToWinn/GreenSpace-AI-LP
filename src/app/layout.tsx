@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans as Jakarta } from "next/font/google";
 import "./globals.css";
