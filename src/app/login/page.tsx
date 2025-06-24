@@ -8,17 +8,43 @@ import { useEffect, useState } from 'react';
 
 export default function LoginButton() {
   const network = process.env.NEXT_PUBLIC_NETWORK || 'ic'; 
-  const identityProvider = network === 'local' ? `http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943/` : 'https://identity.ic0.app';
   const [appPublicKey, setAppPublicKey] = useState<Ed25519PublicKey | null>(null);
   const [scheme, setScheme] = useState<string>('');
+  const [urlLogin, setUrlLogin] = useState<string>();
+  const [identityProvider, setIdentityProvider] = useState<string>('https://identity.ic0.app');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const url = window.location.href;
       const publicKeyIndex = url.indexOf('sessionKey=');
+      if (publicKeyIndex === -1) {
+        alert('Invalid URL: sessionKey parameter is missing.');
+        return;
+      }
       const schemeIndex = url.indexOf('scheme=');
+      if (schemeIndex === -1) {
+        alert('Invalid URL: scheme parameter is missing.');
+        return;
+      }
+      
+      const modeIndex = url.indexOf('mode=');
+      let modeValue = 'ic';
+      if (modeIndex !== -1) {
+        const modeEnd = url.indexOf('&', modeIndex);
+        modeValue = url.substring(
+          modeIndex + 'mode='.length,
+          modeEnd !== -1 ? modeEnd : undefined
+        );
+      }
+
+      const provider =
+        modeValue === 'local'
+          ? `http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943/`
+          : 'https://identity.ic0.app';
+      setIdentityProvider(provider);
       setScheme(url.substring(schemeIndex + 'scheme='.length));
       if (publicKeyIndex !== -1) {
+        
         const publicKeyString = url.substring(publicKeyIndex + 'sessionKey='.length);
         const derBytes = Buffer.from(publicKeyString, 'hex');
         const pubKey = Ed25519PublicKey.fromDer(derBytes.buffer.slice(derBytes.byteOffset, derBytes.byteOffset + derBytes.byteLength) as DerEncodedPublicKey);
