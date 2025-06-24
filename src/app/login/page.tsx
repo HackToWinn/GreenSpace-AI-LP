@@ -7,10 +7,8 @@ import { Buffer } from 'buffer';
 import { useEffect, useState } from 'react';
 
 export default function LoginButton() {
-  const network = process.env.NEXT_PUBLIC_NETWORK || 'ic'; 
   const [appPublicKey, setAppPublicKey] = useState<Ed25519PublicKey | null>(null);
   const [scheme, setScheme] = useState<string>('');
-  const [urlLogin, setUrlLogin] = useState<string>();
   const [identityProvider, setIdentityProvider] = useState<string>('https://identity.ic0.app');
 
   useEffect(() => {
@@ -26,7 +24,7 @@ export default function LoginButton() {
         alert('Invalid URL: scheme parameter is missing.');
         return;
       }
-      
+
       const modeIndex = url.indexOf('mode=');
       let modeValue = 'ic';
       if (modeIndex !== -1) {
