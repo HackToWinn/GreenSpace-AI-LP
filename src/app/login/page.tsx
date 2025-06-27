@@ -42,7 +42,7 @@ export default function LoginButton() {
       setIdentityProvider(provider);
       setScheme(url.substring(schemeIndex + 'scheme='.length));
       if (publicKeyIndex !== -1) {
-        
+
         const publicKeyString = url.substring(publicKeyIndex + 'sessionKey='.length);
         const derBytes = Buffer.from(publicKeyString, 'hex');
         const pubKey = Ed25519PublicKey.fromDer(derBytes.buffer.slice(derBytes.byteOffset, derBytes.byteOffset + derBytes.byteLength) as DerEncodedPublicKey);
@@ -74,7 +74,7 @@ export default function LoginButton() {
       const middleToApp = await DelegationChain.create(
         middleKeyIdentity,
         appPublicKey,
-        new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000), 
+        new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000),
         { previous: middleIdentity.getDelegation() }
       );
       const delegationString = JSON.stringify(middleToApp.toJSON());
@@ -86,8 +86,23 @@ export default function LoginButton() {
   };
 
   return (
-    <button disabled={!appPublicKey} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" onClick={handleLogin}>
-      Login with Internet Identity
-    </button>
+    <div className='w-full min-h-screen px-8 md:px-24 lg:px-52 xl:px-72 flex flex-col gap-6 justify-center items-center font-[family-name:var(--font-jakarta-sans)] text-center'>
+      <h1 className="text-2xl font-semibold">Login with Internet Identity</h1>
+      <p className="text-gray-600 max-w-md">
+        You will be redirected to a browser page to authenticate using Internet Identity.
+        After successful login, you will automatically return to the app.
+      </p>
+      <button disabled={!appPublicKey} className="px-4 py-2 bg-[#4CAF50] text-white font-semibold rounded-full hover:bg-[#3E9E45] disabled:cursor-not-allowed disabled:bg-[#225D2A] disabled:text-gray-300" onClick={handleLogin}>
+        Authenticate via Browser
+      </button>
+      {!appPublicKey && (
+        <div className='bg-rose-100 border border-rose-400 text-rose-700 px-4 py-3 rounded relative'>
+          <strong className='font-bold'>Error: </strong>
+          <span className='block sm:inline'>
+            Invalid Session Key. Make sure to launch the login process from within the mobile application.
+          </span>
+        </div>
+      )}
+    </div>
   );
 }
