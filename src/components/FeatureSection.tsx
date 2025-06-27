@@ -21,7 +21,7 @@ export default function FeatureSection() {
           </p>
           <div className="flex justify-end">
             <Image
-              src={'/images/feature_img1.png'}
+              src={'/images/feature_img_1.png'}
               alt="Feature Image 1"
               width={600}
               height={600}
@@ -39,7 +39,7 @@ export default function FeatureSection() {
           </p>
           <div className="flex justify-end">
             <Image
-              src={'/images/feature_img2.png'}
+              src={'/images/feature_img_2.png'}
               alt="Feature Image 2"
               width={1200}
               height={1200}
@@ -57,7 +57,7 @@ export default function FeatureSection() {
           </p>
           <div className="flex justify-end">
             <Image
-              src={'/images/feature_img3.png'}
+              src={'/images/feature_img_3.png'}
               alt="Feature Image 3"
               width={600}
               height={600}
@@ -75,7 +75,7 @@ export default function FeatureSection() {
           </p>
           <div className="flex justify-end">
             <Image
-              src={'/images/feature_img4.png'}
+              src={'/images/feature_img_4.png'}
               alt="Feature Image 4"
               width={600}
               height={600}
